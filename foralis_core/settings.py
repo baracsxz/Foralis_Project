@@ -1,3 +1,5 @@
+import dj_database_url
+import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -69,8 +71,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'foralis_core.wsgi.application'
 
+# UPDATED DATABASE SETTING TO SUPPORT RENDER
 DATABASES = {
-    'default': {
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL'),
+        conn_max_age=600
+    )
+}
+
+# FALLBACK FOR LOCAL RUNS IF DATABASE_URL IS EMPTY
+if not DATABASES['default']:
+    DATABASES['default'] = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'Foralis_Database',
         'USER': 'admin',
@@ -78,7 +89,6 @@ DATABASES = {
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
-}
 
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
@@ -134,5 +144,4 @@ JAZZMIN_UI_TWEAKS = {
     "accent": "accent-primary",
 }
 
-#FIXED: force standard session termination processes to drop active clients back to login instantly
 LOGOUT_REDIRECT_URL = '/admin/login/'
