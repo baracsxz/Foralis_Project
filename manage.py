@@ -27,7 +27,19 @@ def main():
         except Exception as e:
             print(f"Admin creation helper skipped: {e}")
     else:
+        # FORCE DATA LOAD ON WEB SERVER START
+        try:
+            import django
+            django.setup()
+            from django.core.management import call_command
+            if os.path.exists('data.json'):
+                call_command('loaddata', 'data.json')
+                print("--- DATA JSON IMPORTED SUCCESSFULLY ---")
+        except Exception as e:
+            print(f"Forced data load skipped: {e}")
+            
         execute_from_command_line(sys.argv)
 
 if __name__ == '__main__':
     main()
+    
