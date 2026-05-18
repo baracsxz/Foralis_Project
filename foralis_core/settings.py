@@ -8,7 +8,7 @@ SECRET_KEY = 'django-insecure-+ew%%h&$f#d+f)p27d%ij=+6a95k0n85k*lts$5zv7g17ln*c+
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['.render.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['.render.com', 'localhost', '127.0.0.1', 'foralis-admin.onrender.com']
 
 INSTALLED_APPS = [
     'jazzmin',
