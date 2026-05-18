@@ -1,0 +1,870 @@
+[
+  {
+    "model": "inventory.supplier",
+    "pk": 1,
+    "fields": {
+      "name": "Cebu Steelflow Inc.",
+      "contact_person": "Unknown",
+      "phone_number": "0000",
+      "email": "supplier1@example.com"
+    }
+  },
+  {
+    "model": "inventory.supplier",
+    "pk": 2,
+    "fields": {
+      "name": "Nippon Steel (Imported) or SteelAsia",
+      "contact_person": "Unknown",
+      "phone_number": "0000",
+      "email": "supplier2@example.com"
+    }
+  },
+  {
+    "model": "inventory.supplier",
+    "pk": 3,
+    "fields": {
+      "name": "Alumitech",
+      "contact_person": "Unknown",
+      "phone_number": "0000",
+      "email": "supplier3@example.com"
+    }
+  },
+  {
+    "model": "inventory.supplier",
+    "pk": 4,
+    "fields": {
+      "name": "SteelAsia or Chioson Development Corp",
+      "contact_person": "Unknown",
+      "phone_number": "0000",
+      "email": "supplier4@example.com"
+    }
+  },
+  {
+    "model": "inventory.supplier",
+    "pk": 5,
+    "fields": {
+      "name": "Specialized Marine Alloy suppliers (Manila/Cebu)",
+      "contact_person": "Unknown",
+      "phone_number": "0000",
+      "email": "supplier5@example.com"
+    }
+  },
+  {
+    "model": "inventory.supplier",
+    "pk": 6,
+    "fields": {
+      "name": "Wilhelmsen Ships Service (Nalfleet)",
+      "contact_person": "Unknown",
+      "phone_number": "0000",
+      "email": "supplier6@example.com"
+    }
+  },
+  {
+    "model": "inventory.supplier",
+    "pk": 7,
+    "fields": {
+      "name": "Industrial Valve vendors in Mandaue/Cebu",
+      "contact_person": "Unknown",
+      "phone_number": "0000",
+      "email": "supplier7@example.com"
+    }
+  },
+  {
+    "model": "inventory.supplier",
+    "pk": 8,
+    "fields": {
+      "name": "High-grade stainless distributors in PH",
+      "contact_person": "Unknown",
+      "phone_number": "0000",
+      "email": "supplier8@example.com"
+    }
+  },
+  {
+    "model": "inventory.supplier",
+    "pk": 9,
+    "fields": {
+      "name": "Local industrial hardware or importedv",
+      "contact_person": "Unknown",
+      "phone_number": "0000",
+      "email": "supplier9@example.com"
+    }
+  },
+  {
+    "model": "inventory.supplier",
+    "pk": 10,
+    "fields": {
+      "name": "Emerson or specialized flow control shops",
+      "contact_person": "Unknown",
+      "phone_number": "0000",
+      "email": "supplier10@example.com"
+    }
+  },
+  {
+    "model": "inventory.supplier",
+    "pk": 11,
+    "fields": {
+      "name": "WIKA or Stauff",
+      "contact_person": "Unknown",
+      "phone_number": "0000",
+      "email": "supplier11@example.com"
+    }
+  },
+  {
+    "model": "inventory.supplier",
+    "pk": 12,
+    "fields": {
+      "name": "Parker or local hydraulic specialists",
+      "contact_person": "Unknown",
+      "phone_number": "0000",
+      "email": "supplier12@example.com"
+    }
+  },
+  {
+    "model": "inventory.supplier",
+    "pk": 13,
+    "fields": {
+      "name": "Klinger Group or local gasket cutters",
+      "contact_person": "Unknown",
+      "phone_number": "0000",
+      "email": "supplier13@example.com"
+    }
+  },
+  {
+    "model": "inventory.supplier",
+    "pk": 14,
+    "fields": {
+      "name": "Marine coupling distributors in Cebu",
+      "contact_person": "Unknown",
+      "phone_number": "0000",
+      "email": "supplier14@example.com"
+    }
+  },
+  {
+    "model": "inventory.supplier",
+    "pk": 15,
+    "fields": {
+      "name": "Swagelok or local stainless fitting shops",
+      "contact_person": "Unknown",
+      "phone_number": "0000",
+      "email": "supplier15@example.com"
+    }
+  },
+  {
+    "model": "inventory.supplier",
+    "pk": 16,
+    "fields": {
+      "name": "Local precision machining shops or Parker",
+      "contact_person": "Unknown",
+      "phone_number": "0000",
+      "email": "supplier16@example.com"
+    }
+  },
+  {
+    "model": "inventory.supplier",
+    "pk": 17,
+    "fields": {
+      "name": "Gates, Eaton, or specialized hydraulic providers",
+      "contact_person": "Unknown",
+      "phone_number": "0000",
+      "email": "supplier17@example.com"
+    }
+  },
+  {
+    "model": "inventory.supplier",
+    "pk": 18,
+    "fields": {
+      "name": "Thordon Bearings or marine-specific suppliers",
+      "contact_person": "Unknown",
+      "phone_number": "0000",
+      "email": "supplier18@example.com"
+    }
+  },
+  {
+    "model": "inventory.supplier",
+    "pk": 19,
+    "fields": {
+      "name": "Stauff, Parker, or local Cebu industrial shops",
+      "contact_person": "Unknown",
+      "phone_number": "0000",
+      "email": "supplier19@example.com"
+    }
+  },
+  {
+    "model": "inventory.supplier",
+    "pk": 20,
+    "fields": {
+      "name": "Schneider Electric or local sheet metal fabricators",
+      "contact_person": "Unknown",
+      "phone_number": "0000",
+      "email": "supplier20@example.com"
+    }
+  },
+  {
+    "model": "inventory.supplier",
+    "pk": 21,
+    "fields": {
+      "name": "Rexroth, Eaton, or specialized hydraulic dealers",
+      "contact_person": "Unknown",
+      "phone_number": "0000",
+      "email": "supplier21@example.com"
+    }
+  },
+  {
+    "model": "inventory.supplier",
+    "pk": 22,
+    "fields": {
+      "name": "Specialized marine filtration suppliers",
+      "contact_person": "Unknown",
+      "phone_number": "0000",
+      "email": "supplier22@example.com"
+    }
+  },
+  {
+    "model": "inventory.supplier",
+    "pk": 23,
+    "fields": {
+      "name": "ITW Performance Polymers or marine repair shops",
+      "contact_person": "Unknown",
+      "phone_number": "0000",
+      "email": "supplier23@example.com"
+    }
+  },
+  {
+    "model": "inventory.supplier",
+    "pk": 24,
+    "fields": {
+      "name": "Marine and industrial coupling providers in Cebu",
+      "contact_person": "Unknown",
+      "phone_number": "0000",
+      "email": "supplier24@example.com"
+    }
+  },
+  {
+    "model": "inventory.supplier",
+    "pk": 25,
+    "fields": {
+      "name": "Local steel distributors or SteelAsia",
+      "contact_person": "Unknown",
+      "phone_number": "0000",
+      "email": "supplier25@example.com"
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 1,
+    "fields": {
+      "name": "Stainless Steel Pipe Flanges",
+      "category": "Marine",
+      "unit": "pc",
+      "supplier": 1,
+      "unit_cost": "2500.00",
+      "current_stock": 84,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 2,
+    "fields": {
+      "name": "Steel Plate (ASTM A36)",
+      "category": "Construction",
+      "unit": "sheet",
+      "supplier": 2,
+      "unit_cost": "48000.00",
+      "current_stock": 95,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 3,
+    "fields": {
+      "name": "Marine Grade Aluminum",
+      "category": "Marine",
+      "unit": "kg",
+      "supplier": 3,
+      "unit_cost": "680.00",
+      "current_stock": 138,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 4,
+    "fields": {
+      "name": "CB300-V Deformed Bar",
+      "category": "Engineering",
+      "unit": "m",
+      "supplier": 4,
+      "unit_cost": "48.00",
+      "current_stock": 100,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 5,
+    "fields": {
+      "name": "Copper-Nickel 90/10 Pipes",
+      "category": "Marine",
+      "unit": "m",
+      "supplier": 5,
+      "unit_cost": "3700.00",
+      "current_stock": 100,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 6,
+    "fields": {
+      "name": "NASLFEET 2000",
+      "category": "Industrial",
+      "unit": "drum",
+      "supplier": 6,
+      "unit_cost": "6800.00",
+      "current_stock": 100,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 7,
+    "fields": {
+      "name": "Customized Valves",
+      "category": "Engineering",
+      "unit": "pc",
+      "supplier": 7,
+      "unit_cost": "19500.00",
+      "current_stock": 9,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 8,
+    "fields": {
+      "name": "Polished SS316L Profiles",
+      "category": "Industrial",
+      "unit": "m",
+      "supplier": 8,
+      "unit_cost": "1400.00",
+      "current_stock": 100,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 9,
+    "fields": {
+      "name": "Precision Tubes",
+      "category": "Engineering",
+      "unit": "m",
+      "supplier": 9,
+      "unit_cost": "1850.00",
+      "current_stock": 112,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 10,
+    "fields": {
+      "name": "Orifice Plate Assembly",
+      "category": "Engineering",
+      "unit": "pc",
+      "supplier": 10,
+      "unit_cost": "12500.00",
+      "current_stock": 100,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 11,
+    "fields": {
+      "name": "Pressure Gauges",
+      "category": "Industrial",
+      "unit": "pc",
+      "supplier": 11,
+      "unit_cost": "3200.00",
+      "current_stock": 10,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 12,
+    "fields": {
+      "name": "SS316 Hydraulic Valves",
+      "category": "Industrial",
+      "unit": "pc",
+      "supplier": 12,
+      "unit_cost": "8900.00",
+      "current_stock": 115,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 13,
+    "fields": {
+      "name": "KLINGER C-4430",
+      "category": "Engineering",
+      "unit": "sheet",
+      "supplier": 13,
+      "unit_cost": "1200.00",
+      "current_stock": 100,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 14,
+    "fields": {
+      "name": "French Guillemin Coupling",
+      "category": "Marine",
+      "unit": "pc",
+      "supplier": 14,
+      "unit_cost": "2800.00",
+      "current_stock": 100,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 15,
+    "fields": {
+      "name": "Compression Fittings",
+      "category": "Engineering",
+      "unit": "pc",
+      "supplier": 15,
+      "unit_cost": "450.00",
+      "current_stock": 100,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 16,
+    "fields": {
+      "name": "Custom Machined Hydraulic Fittings",
+      "category": "Engineering",
+      "unit": "pc",
+      "supplier": 16,
+      "unit_cost": "1250.00",
+      "current_stock": 100,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 17,
+    "fields": {
+      "name": "Hydraulic Hose Assemblies",
+      "category": "Industrial",
+      "unit": "pc",
+      "supplier": 17,
+      "unit_cost": "5800.00",
+      "current_stock": 100,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 18,
+    "fields": {
+      "name": "SL-IIIA Synthetic Bearing",
+      "category": "Marine",
+      "unit": "pc",
+      "supplier": 18,
+      "unit_cost": "14500.00",
+      "current_stock": 110,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 19,
+    "fields": {
+      "name": "DIN2353 Compression Fittings",
+      "category": "Engineering",
+      "unit": "pc",
+      "supplier": 19,
+      "unit_cost": "559.00",
+      "current_stock": 100,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 20,
+    "fields": {
+      "name": "Aluminum Electrical Enclosures",
+      "category": "Industrial",
+      "unit": "pc",
+      "supplier": 20,
+      "unit_cost": "4800.00",
+      "current_stock": 100,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 21,
+    "fields": {
+      "name": "Hydraulic Proportional Valve",
+      "category": "Engineering",
+      "unit": "pc",
+      "supplier": 21,
+      "unit_cost": "42000.00",
+      "current_stock": 100,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 22,
+    "fields": {
+      "name": "SS316 Mist Eliminator",
+      "category": "Marine",
+      "unit": "pc",
+      "supplier": 22,
+      "unit_cost": "28500.00",
+      "current_stock": 100,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 23,
+    "fields": {
+      "name": "Chockfast Orange",
+      "category": "Marine",
+      "unit": "pc",
+      "supplier": 23,
+      "unit_cost": "18200.00",
+      "current_stock": 111,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 24,
+    "fields": {
+      "name": "Stainless Steel Plate",
+      "category": "Construction",
+      "unit": "sheet",
+      "supplier": 25,
+      "unit_cost": "35000.00",
+      "current_stock": 50,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 25,
+    "fields": {
+      "name": "Checkered Plate",
+      "category": "Construction",
+      "unit": "sheet",
+      "supplier": 25,
+      "unit_cost": "3500.00",
+      "current_stock": 94,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 26,
+    "fields": {
+      "name": "Steel Plate",
+      "category": "Construction",
+      "unit": "sheet",
+      "supplier": 2,
+      "unit_cost": "45000.00",
+      "current_stock": 40,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 27,
+    "fields": {
+      "name": "Steel Profile",
+      "category": "Construction",
+      "unit": "m",
+      "supplier": 4,
+      "unit_cost": "1200.00",
+      "current_stock": 150,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 28,
+    "fields": {
+      "name": "Fabricated Components",
+      "category": "Engineering",
+      "unit": "pc",
+      "supplier": 16,
+      "unit_cost": "25000.00",
+      "current_stock": 15,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 29,
+    "fields": {
+      "name": "Stainless Steel Pipes",
+      "category": "Marine",
+      "unit": "m",
+      "supplier": 1,
+      "unit_cost": "3100.00",
+      "current_stock": 85,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 30,
+    "fields": {
+      "name": "SAE J518 Hydraulic Flange",
+      "category": "Industrial",
+      "unit": "pc",
+      "supplier": 12,
+      "unit_cost": "1450.00",
+      "current_stock": 65,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 31,
+    "fields": {
+      "name": "Machined Fittings",
+      "category": "Engineering",
+      "unit": "pc",
+      "supplier": 16,
+      "unit_cost": "850.00",
+      "current_stock": 120,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 32,
+    "fields": {
+      "name": "SS316 Outfitting Accessories",
+      "category": "Marine",
+      "unit": "pc",
+      "supplier": 14,
+      "unit_cost": "1950.00",
+      "current_stock": 45,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 33,
+    "fields": {
+      "name": "Stainless Steel Pipe Fittings",
+      "category": "Marine",
+      "unit": "pc",
+      "supplier": 1,
+      "unit_cost": "650.00",
+      "current_stock": 200,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.material",
+    "pk": 34,
+    "fields": {
+      "name": "Copper-Nickel 90/10 Fittings",
+      "category": "Marine",
+      "unit": "pc",
+      "supplier": 5,
+      "unit_cost": "1800.00",
+      "current_stock": 90,
+      "min_stock_level": 10
+    }
+  },
+  {
+    "model": "inventory.movement",
+    "pk": 1,
+    "fields": {
+      "material": 3,
+      "movement_type": "IN",
+      "quantity": 50,
+      "project_site": "Main Warehouse",
+      "date": "2026-05-18T12:00:00Z"
+    }
+  },
+  {
+    "model": "inventory.movement",
+    "pk": 2,
+    "fields": {
+      "material": 12,
+      "movement_type": "IN",
+      "quantity": 20,
+      "project_site": "Main Warehouse",
+      "date": "2026-05-18T12:05:00Z"
+    }
+  },
+  {
+    "model": "inventory.movement",
+    "pk": 3,
+    "fields": {
+      "material": 23,
+      "movement_type": "IN",
+      "quantity": 15,
+      "project_site": "Main Warehouse",
+      "date": "2026-05-18T12:10:00Z"
+    }
+  },
+  {
+    "model": "inventory.movement",
+    "pk": 4,
+    "fields": {
+      "material": 18,
+      "movement_type": "IN",
+      "quantity": 10,
+      "project_site": "Main Warehouse",
+      "date": "2026-05-18T12:15:00Z"
+    }
+  },
+  {
+    "model": "inventory.movement",
+    "pk": 5,
+    "fields": {
+      "material": 3,
+      "movement_type": "OUT",
+      "quantity": 12,
+      "project_site": "Cebu Port Pier 4",
+      "date": "2026-05-18T12:20:00Z"
+    }
+  },
+  {
+    "model": "inventory.movement",
+    "pk": 6,
+    "fields": {
+      "material": 12,
+      "movement_type": "OUT",
+      "quantity": 5,
+      "project_site": "Keppel Subic Shipyard",
+      "date": "2026-05-18T12:25:00Z"
+    }
+  },
+  {
+    "model": "inventory.movement",
+    "pk": 7,
+    "fields": {
+      "material": 23,
+      "movement_type": "OUT",
+      "quantity": 4,
+      "project_site": "Shell North Depot",
+      "date": "2026-05-18T12:30:00Z"
+    }
+  },
+  {
+    "model": "inventory.movement",
+    "pk": 8,
+    "fields": {
+      "material": 11,
+      "movement_type": "OUT",
+      "quantity": 8,
+      "project_site": "Mactan Yacht Club",
+      "date": "2026-05-18T12:35:00Z"
+    }
+  },
+  {
+    "model": "inventory.movement",
+    "pk": 9,
+    "fields": {
+      "material": 11,
+      "movement_type": "OUT",
+      "quantity": 82,
+      "project_site": "Cebu Port Pier 4",
+      "date": "2026-05-18T12:40:00Z"
+    }
+  },
+  {
+    "model": "inventory.movement",
+    "pk": 10,
+    "fields": {
+      "material": 2,
+      "movement_type": "OUT",
+      "quantity": 5,
+      "project_site": "Keppel Subic Shipyard",
+      "date": "2026-05-18T12:45:00Z"
+    }
+  },
+  {
+    "model": "inventory.movement",
+    "pk": 11,
+    "fields": {
+      "material": 25,
+      "movement_type": "OUT",
+      "quantity": 6,
+      "project_site": "Shell North Depot",
+      "date": "2026-05-18T12:50:00Z"
+    }
+  },
+  {
+    "model": "inventory.movement",
+    "pk": 12,
+    "fields": {
+      "material": 7,
+      "movement_type": "IN",
+      "quantity": 1,
+      "project_site": "Main Warehouse",
+      "date": "2026-05-18T12:55:00Z"
+    }
+  },
+  {
+    "model": "inventory.movement",
+    "pk": 13,
+    "fields": {
+      "material": 7,
+      "movement_type": "OUT",
+      "quantity": 92,
+      "project_site": "Main Warehouse",
+      "date": "2026-05-18T13:00:00Z"
+    }
+  },
+  {
+    "model": "inventory.movement",
+    "pk": 14,
+    "fields": {
+      "material": 9,
+      "movement_type": "IN",
+      "quantity": 12,
+      "project_site": "Shell North Depot",
+      "date": "2026-05-18T13:05:00Z"
+    }
+  },
+  {
+    "model": "inventory.movement",
+    "pk": 15,
+    "fields": {
+      "material": 1,
+      "movement_type": "OUT",
+      "quantity": 15,
+      "project_site": "Keppel Subic Shipyard",
+      "date": "2026-05-18T13:10:00Z"
+    }
+  },
+  {
+    "model": "inventory.movement",
+    "pk": 16,
+    "fields": {
+      "material": 1,
+      "movement_type": "OUT",
+      "quantity": 1,
+      "project_site": "Keppel Subic Shipyard",
+      "date": "2026-05-18T13:15:00Z"
+    }
+  }
+]

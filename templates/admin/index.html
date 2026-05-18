@@ -1,0 +1,132 @@
+{% extends "admin/index.html" %}
+{% load i18n static %}
+
+{% block content %}
+<style>
+    .dashboard-card-row {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        margin-right: -7.5px !important;
+        margin-left: -7.5px !important;
+        margin-bottom: 20px !important;
+    }
+    .custom-card-wrapper {
+        position: relative !important;
+        width: 100% !important;
+        padding-right: 7.5px !important;
+        padding-left: 7.5px !important;
+        flex-basis: 0 !important;
+        flex-grow: 1 !important;
+        max-width: 100% !important;
+    }
+    .custom-status-card {
+        background: #ffffff !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 8px !important;
+        padding: 20px !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 15px !important;
+        height: 100% !important;
+    }
+    .custom-card-icon {
+        width: 45px !important;
+        height: 45px !important;
+        border-radius: 6px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 1.25rem !important;
+    }
+    .icon-blue { background: #eef2f6 !important; color: #556c7d !important; }
+    .icon-green { background: #eefbf4 !important; color: #2e7d32 !important; }
+    .icon-orange { background: #fff9db !important; color: #f59f00 !important; }
+    .custom-card-info h5 { margin: 0 !important; font-size: 0.85rem !important; color: #64748b !important; font-weight: 500 !important; }
+    .custom-card-info h2 { margin: 5px 0 0 0 !important; font-size: 1.75rem !important; color: #1e293b !important; font-weight: 700 !important; }
+    .alert-banner-box {
+        background: #fff9db !important;
+        border: 1px solid #ffe066 !important;
+        border-radius: 8px !important;
+        padding: 15px !important;
+        margin-bottom: 25px !important;
+        color: #856404 !important;
+        display: flex !important;
+        gap: 12px !important;
+        width: 100% !important;
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12" style="display: flex !important; justify-content: space-between !important; align-items: center !important; margin-bottom: 20px !important;">
+            <div>
+                <h1 class="m-0 text-dark font-weight-bold" style="font-family: inherit; font-size: 1.75rem; margin-bottom: 5px !important;">Inventory Dashboard</h1>
+                <p class="text-muted" style="margin-bottom: 0px;">Overview of your inventory status</p>
+            </div>
+            
+            <form action="/admin/logout/" method="post" style="margin: 0 !important;">
+                {% csrf_token %}
+                <button type="submit" class="btn" style="background-color: #ff6b6b !important; color: white !important; font-weight: bold !important; padding: 10px 20px !important; border-radius: 6px !important; border: none !important; display: flex !important; align-items: center !important; gap: 8px !important; cursor: pointer !important;">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Log Out</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="dashboard-card-row">
+        <div class="custom-card-wrapper">
+            <div class="custom-status-card">
+                <div class="custom-card-icon icon-blue"><i class="fas fa-boxes"></i></div>
+                <div class="custom-card-info">
+                    <h5>Total Materials</h5>
+                    <h2>{{ total_materials|default:0 }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="custom-card-wrapper">
+            <div class="custom-status-card">
+                <div class="custom-card-icon icon-green"><i class="fas fa-arrow-up"></i></div>
+                <div class="custom-card-info">
+                    <h5>Ingoing Movements</h5>
+                    <h2>{{ total_ingoing|default:0 }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="custom-card-wrapper">
+            <div class="custom-status-card">
+                <div class="custom-card-icon icon-blue"><i class="fas fa-arrow-down"></i></div>
+                <div class="custom-card-info">
+                    <h5>Outgoing Movements</h5>
+                    <h2>{{ total_outgoing|default:0 }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="custom-card-wrapper">
+            <div class="custom-status-card" style="border-color: #ffe066;">
+                <div class="custom-card-icon icon-orange"><i class="fas fa-exclamation-triangle"></i></div>
+                <div class="custom-card-info">
+                    <h5>Low Stock Alerts</h5>
+                    <h2>{{ low_stock_alerts|default:0 }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if low_stock_alerts > 0 %}
+    <div class="alert-banner-box" style="flex-direction: column !important; align-items: flex-start !important; gap: 5px !important;">
+        <div style="display: flex !important; gap: 12px !important; align-items: center !important;">
+            <i class="fas fa-exclamation-triangle" style="color: #f59f00;"></i>
+            <strong style="color: #2c2c2c;">Low Stock Alert</strong>
+        </div>
+        <div style="padding-left: 27px !important;">
+            {% for item in low_stock_items %}
+                <span style="display: block; color: #595959; font-size: 0.9rem; margin-bottom: 2px;">
+                    • {{ item.name }} ({{ item.current_stock }} remaining)
+                </span>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

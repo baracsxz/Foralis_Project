@@ -1,0 +1,109 @@
+{% load i18n static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logged out | Foralis Admin Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+        body { display: flex; height: 100vh; overflow: hidden; background-color: #ffffff; }
+        
+        .left-banner { 
+            width: 50%; 
+            background-color: #0d1e2d; 
+            display: flex; 
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center; 
+            padding: 40px;
+            position: relative;
+        }
+        .logo-card {
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            max-width: 380px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .logo-card img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .banner-footer {
+            position: absolute;
+            bottom: 40px;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-align: center;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .right-form-container { 
+            width: 50%; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center;
+            padding: 0 10%; 
+            position: relative;
+        }
+        .form-wrapper { max-width: 440px; width: 100%; text-align: left; }
+        h1 { font-size: 2.5rem; color: #0d1e2d; font-weight: 700; margin-bottom: 12px; }
+        .subtitle { color: #556c7d; font-size: 1.1rem; line-height: 1.6; margin-bottom: 40px; }
+        
+        .login-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 14px;
+            background: #1a4f63;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background 0.2s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .login-btn:hover { background: #123948; text-decoration: none; }
+        
+        .system-footer { 
+            position: absolute; 
+            bottom: 40px; 
+            color: #a0aec0; 
+            font-size: 0.85rem;
+            text-align: center;
+            width: 100%;
+            left: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="left-banner">
+        <div class="logo-card">
+            <img src="{% static 'logo.webp' %}" alt="Foralis Ventures Group Logo">
+        </div>
+        <div class="banner-footer">
+            Marine Engineering . Civil Construction . Materials Trading
+        </div>
+    </div>
+
+    <div class="right-form-container">
+        <div class="form-wrapper">
+            <h1>Logged out</h1>
+            <p class="subtitle">Thanks for spending some quality time with the Web site today.</p>
+
+            <a href="/admin/login/" class="login-btn">Log in again</a>
+        </div>
+
+        <div class="system-footer">
+            &copy; 2026 Foralis Ventures Group. All rights reserved.
+        </div>
+    </div>
+
+</body>
+</html>
