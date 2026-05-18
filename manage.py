@@ -2,14 +2,6 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-import os
-from django.contrib.auth import get_user_model
-
-def create_admin_profile():
-    User = get_user_model()
-    if not User.objects.filter(username="admin").exists():
-        User.objects.create_superuser("admin", "admin@example.com", "admin2026")
-        print("--- ADMIN ACCOUNT CREATED SUCCESSFULLY ---")
 
 def main():
     """Run administrative tasks."""
@@ -22,9 +14,20 @@ def main():
             "available on your PYTHONPATH environment variable? Did you "
             "forget to activate a virtual environment?"
         ) from exc
-    execute_from_command_line(sys.argv)
-
+        
+    # RUN SYSTEM TASKS AFTER INITIALIZATION
+    if len(sys.argv) > 1 and sys.argv[1] == 'migrate':
+        execute_from_command_line(sys.argv)
+        try:
+            from django.contrib.auth import get_user_model
+            User = get_user_model()
+            if not User.objects.filter(username="admin").exists():
+                User.objects.create_superuser("admin", "admin@example.com", "admin2026")
+                print("--- ADMIN ACCOUNT CREATED SUCCESSFULLY ---")
+        except Exception as e:
+            print(f"Admin creation helper skipped: {e}")
+    else:
+        execute_from_command_line(sys.argv)
 
 if __name__ == '__main__':
-    create_admin_profile()
     main()
