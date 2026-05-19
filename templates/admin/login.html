@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
-        body { display: flex; height: 100vh; overflow: hidden; background-color: #ffffff; }
+        body { display: flex; height: 100vh; background-color: #ffffff; }
         
         .left-banner { 
             width: 50%; 
@@ -55,8 +55,6 @@
         
         .form-group { margin-bottom: 24px; position: relative; }
         label { display: block; font-size: 0.95rem; color: #2d3748; font-weight: 500; margin-bottom: 8px; }
-        
-        /* FIXED: wrapper setup to hold the toggle button overlay position rules */
         .password-wrapper { position: relative; width: 100%; }
         
         input[type="text"], input[type="password"] {
@@ -72,7 +70,6 @@
         }
         input:focus { border-color: #1a4f63; background: #ffffff; box-shadow: 0 0 0 3px rgba(26, 79, 99, 0.1); }
         
-        /* FIXED: style parameters to align reveal icon neatly inside the input boundary box */
         input[name="password"] { padding-right: 45px; }
         .toggle-password {
             position: absolute;
@@ -112,6 +109,16 @@
             width: 100%;
             left: 0;
             right: 0;
+        }
+
+        /* MOBILE STYLES */
+        @media (max-width: 768px) {
+            body { flex-direction: column; height: auto; overflow: auto; }
+            .left-banner { width: 100%; padding: 60px 20px; }
+            .banner-footer { position: relative; bottom: 0; margin-top: 30px; }
+            .right-form-container { width: 100%; padding: 50px 20px 100px 20px; }
+            h1 { font-size: 2rem; }
+            .system-footer { position: absolute; bottom: 30px; }
         }
     </style>
 </head>
