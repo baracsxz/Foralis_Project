@@ -72,7 +72,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'foralis_core.wsgi.application'
 
-# UPDATED DATABASE SETTING TO SUPPORT RENDER
 DATABASES = {
     'default': dj_database_url.config(
         default=os.environ.get('DATABASE_URL'),
@@ -80,7 +79,6 @@ DATABASES = {
     )
 }
 
-# FALLBACK FOR LOCAL RUNS IF DATABASE_URL IS EMPTY
 if not DATABASES['default']:
     DATABASES['default'] = {
         'ENGINE': 'django.db.backends.postgresql',

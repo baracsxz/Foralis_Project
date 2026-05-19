@@ -56,7 +56,7 @@
         width: 100% !important;
     }
 
-    /* --- NEW RESPONSIVE MOBILE ACCENTS --- */
+    /* --- FIXED GLOBAL MOBILE ACCENTS --- */
     .mobile-header-strip {
         display: none !important;
         padding: 12px 18px !important;
@@ -178,13 +178,13 @@
 
     /* INVENTORY MOBILE SCREEN OVERRIDES */
     @media (max-width: 992px) {
-        .mobile-header-strip { display: flex !important; }
+        body .mobile-header-strip { display: flex !important; }
+        body .main-sidebar-toggle { display: block !important; }
         .container-fluid { padding-top: 65px !important; }
         .custom-card-wrapper {
             flex-basis: 50% !important;
             max-width: 50% !important;
         }
-        .desktop-logout-form { display: none !important; }
     }
     @media (max-width: 576px) {
         .header-flex-container {
@@ -216,14 +216,6 @@
                 <h1 class="m-0 text-dark font-weight-bold" style="font-family: inherit; font-size: 1.75rem; margin-bottom: 5px !important;">Inventory Dashboard</h1>
                 <p class="text-muted" style="margin-bottom: 0px;">Overview of your inventory status</p>
             </div>
-            
-            <form action="/admin/logout/" method="post" style="margin: 0 !important;" class="desktop-logout-form">
-                {% csrf_token %}
-                <button type="submit" class="btn" style="background-color: #ff6b6b !important; color: white !important; font-weight: bold !important; padding: 10px 20px !important; border-radius: 6px !important; border: none !important; display: flex !important; align-items: center !important; gap: 8px !important; cursor: pointer !important;">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>Log Out</span>
-                </button>
-            </form>
         </div>
     </div>
 
@@ -323,13 +315,11 @@
         const closeSidebarBtn = document.getElementById('closeSidebarBtn');
         const shroudCover = document.getElementById('menuShroudCover');
 
-        // open or shut navigation panel drawer
         function toggleSidebarNavigation() {
             sidebarMenu.classList.toggle('drawer-active');
             shroudCover.style.display = sidebarMenu.classList.contains('drawer-active') ? 'block' : 'none';
         }
 
-        // open or close the settings overlay list
         function toggleAccountDropdown(event) {
             event.stopPropagation();
             accountDropdown.classList.toggle('bubble-active');
@@ -340,7 +330,6 @@
         shroudCover.addEventListener('click', toggleSidebarNavigation);
         rightAccountBtn.addEventListener('click', toggleAccountDropdown);
 
-        // hide account item bubble panel if tapping empty space
         document.addEventListener('click', function(e) {
             if (accountDropdown.classList.contains('bubble-active') && !accountDropdown.contains(e.target) && e.target !== rightAccountBtn) {
                 accountDropdown.classList.remove('bubble-active');
