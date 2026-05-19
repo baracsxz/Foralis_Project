@@ -1,352 +1,246 @@
 {% extends "admin/index.html" %}
+
 {% load i18n static %}
 
+
+
 {% block content %}
+
 <style>
+
     .dashboard-card-row {
+
         display: flex !important;
+
         flex-wrap: wrap !important;
+
         margin-right: -7.5px !important;
+
         margin-left: -7.5px !important;
+
         margin-bottom: 20px !important;
+
     }
+
     .custom-card-wrapper {
+
         position: relative !important;
+
         width: 100% !important;
+
         padding-right: 7.5px !important;
+
         padding-left: 7.5px !important;
+
         flex-basis: 0 !important;
+
         flex-grow: 1 !important;
+
         max-width: 100% !important;
-        margin-bottom: 15px !important;
+
     }
+
     .custom-status-card {
+
         background: #ffffff !important;
+
         border: 1px solid #e2e8f0 !important;
+
         border-radius: 8px !important;
+
         padding: 20px !important;
+
         display: flex !important;
+
         align-items: center !important;
+
         gap: 15px !important;
+
         height: 100% !important;
+
     }
+
     .custom-card-icon {
+
         width: 45px !important;
+
         height: 45px !important;
+
         border-radius: 6px !important;
+
         display: flex !important;
+
         align-items: center !important;
+
         justify-content: center !important;
+
         font-size: 1.25rem !important;
+
     }
+
     .icon-blue { background: #eef2f6 !important; color: #556c7d !important; }
+
     .icon-green { background: #eefbf4 !important; color: #2e7d32 !important; }
+
     .icon-orange { background: #fff9db !important; color: #f59f00 !important; }
+
     .custom-card-info h5 { margin: 0 !important; font-size: 0.85rem !important; color: #64748b !important; font-weight: 500 !important; }
+
     .custom-card-info h2 { margin: 5px 0 0 0 !important; font-size: 1.75rem !important; color: #1e293b !important; font-weight: 700 !important; }
+
     .alert-banner-box {
+
         background: #fff9db !important;
+
         border: 1px solid #ffe066 !important;
+
         border-radius: 8px !important;
+
         padding: 15px !important;
+
         margin-bottom: 25px !important;
+
         color: #856404 !important;
+
         display: flex !important;
+
         gap: 12px !important;
+
         width: 100% !important;
+
     }
 
-    /* --- FIXED GLOBAL MOBILE ACCENTS --- */
-    .mobile-header-strip {
-        display: none !important;
-        padding: 12px 18px !important;
-        background-color: #0d1e2d !important;
-        color: white !important;
-        width: 100% !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        z-index: 1050 !important;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
-    }
-    .mobile-toggle-btn {
-        background: transparent !important;
-        border: none !important;
-        color: white !important;
-        font-size: 1.3rem !important;
-        cursor: pointer !important;
-        padding: 4px !important;
-    }
-    .mobile-sidebar-drawer {
-        background-color: #1e293b !important;
-        width: 260px !important;
-        height: 100vh !important;
-        position: fixed !important;
-        top: 0 !important;
-        left: -260px !important;
-        z-index: 1060 !important;
-        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        display: flex !important;
-        flex-direction: column !important;
-        padding: 20px !important;
-        box-shadow: 4px 0 10px rgba(0,0,0,0.15) !important;
-    }
-    .mobile-sidebar-drawer.drawer-active {
-        left: 0 !important;
-    }
-    .drawer-close-trigger {
-        align-self: flex-end !important;
-        background: transparent !important;
-        border: none !important;
-        color: #94a3b8 !important;
-        font-size: 1.5rem !important;
-        cursor: pointer !important;
-        margin-bottom: 15px !important;
-    }
-    .drawer-heading {
-        color: #64748b !important;
-        font-size: 0.75rem !important;
-        text-transform: uppercase !important;
-        letter-spacing: 0.5px !important;
-        margin: 18px 0 8px !important;
-    }
-    .drawer-navigation-link {
-        color: #e2e8f0 !important;
-        padding: 10px 12px !important;
-        text-decoration: none !important;
-        display: flex !important;
-        align-items: center !important;
-        gap: 12px !important;
-        border-radius: 6px !important;
-        font-size: 0.9rem !important;
-    }
-    .drawer-navigation-link:hover {
-        background-color: rgba(255,255,255,0.08) !important;
-        color: white !important;
-    }
-    .drawer-navigation-link i { width: 18px !important; text-align: center !important; }
-    
-    .mobile-account-bubble {
-        display: none !important;
-        position: fixed !important;
-        right: 15px !important;
-        top: 55px !important;
-        width: 200px !important;
-        background: #ffffff !important;
-        border: 1px solid #e2e8f0 !important;
-        border-radius: 8px !important;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
-        z-index: 1070 !important;
-        flex-direction: column !important;
-        overflow: hidden !important;
-    }
-    .bubble-active { display: flex !important; }
-    .bubble-title {
-        color: #64748b !important;
-        font-size: 0.8rem !important;
-        padding: 10px 15px !important;
-        border-bottom: 1px solid #f1f5f9 !important;
-        background: #f8fafc !important;
-    }
-    .bubble-action-item {
-        color: #334155 !important;
-        padding: 12px 15px !important;
-        text-decoration: none !important;
-        font-size: 0.85rem !important;
-        display: flex !important;
-        align-items: center !important;
-        gap: 10px !important;
-        border: none !important;
-        background: transparent !important;
-        width: 100% !important;
-        text-align: left !important;
-        cursor: pointer !important;
-    }
-    .bubble-action-item:hover { background-color: #f1f5f9 !important; }
-    .drawer-backdrop-shroud {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.4);
-        z-index: 1055;
-    }
-
-    /* INVENTORY MOBILE SCREEN OVERRIDES */
-    @media (max-width: 992px) {
-        body .mobile-header-strip { display: flex !important; }
-        body .main-sidebar-toggle { display: block !important; }
-        .container-fluid { padding-top: 65px !important; }
-        .custom-card-wrapper {
-            flex-basis: 50% !important;
-            max-width: 50% !important;
-        }
-    }
-    @media (max-width: 576px) {
-        .header-flex-container {
-            flex-direction: column !important;
-            align-items: flex-start !important;
-            gap: 15px !important;
-        }
-        .custom-card-wrapper {
-            flex-basis: 100% !important;
-            max-width: 100% !important;
-        }
-    }
-
-    /* JAZZMIN DESKTOP TOP BAR NAV FIXES */
-    body .navbar-light .navbar-nav .nav-link,
-    body .navbar-nav .dropdown-toggle,
-    body .navbar-nav .dropdown-toggle span,
-    body .navbar-nav .dropdown-toggle i {
-        color: #1e293b !important;
-    }
-    body .navbar-nav .dropdown-toggle:hover,
-    body .navbar-nav .dropdown-toggle:hover i {
-        color: #0d1e2d !important;
-    }
 </style>
 
-<div class="mobile-header-strip">
-    <button class="mobile-toggle-btn" id="mobileLeftMenuBtn">
-        <i class="fas fa-bars"></i>
-    </button>
-    <span style="font-weight: 600; font-size: 0.95rem; color: #e2e8f0; letter-spacing: 0.3px;">Foralis Admin</span>
-    <button class="mobile-toggle-btn" id="mobileRightAccountBtn">
-        <i class="fas fa-user-circle"></i>
-    </button>
-</div>
+
 
 <div class="container-fluid">
+
     <div class="row">
-        <div class="col-12 header-flex-container" style="display: flex !important; justify-content: space-between !important; align-items: center !important; margin-bottom: 20px !important;">
+
+        <div class="col-12" style="display: flex !important; justify-content: space-between !important; align-items: center !important; margin-bottom: 20px !important;">
+
             <div>
+
                 <h1 class="m-0 text-dark font-weight-bold" style="font-family: inherit; font-size: 1.75rem; margin-bottom: 5px !important;">Inventory Dashboard</h1>
+
                 <p class="text-muted" style="margin-bottom: 0px;">Overview of your inventory status</p>
+
             </div>
         </div>
+
     </div>
+
+
 
     <div class="dashboard-card-row">
+
         <div class="custom-card-wrapper">
+
             <div class="custom-status-card">
+
                 <div class="custom-card-icon icon-blue"><i class="fas fa-boxes"></i></div>
+
                 <div class="custom-card-info">
+
                     <h5>Total Materials</h5>
+
                     <h2>{{ total_materials|default:0 }}</h2>
+
                 </div>
+
             </div>
+
         </div>
+
         <div class="custom-card-wrapper">
+
             <div class="custom-status-card">
+
                 <div class="custom-card-icon icon-green"><i class="fas fa-arrow-up"></i></div>
+
                 <div class="custom-card-info">
+
                     <h5>Ingoing Movements</h5>
+
                     <h2>{{ total_ingoing|default:0 }}</h2>
+
                 </div>
+
             </div>
+
         </div>
+
         <div class="custom-card-wrapper">
+
             <div class="custom-status-card">
+
                 <div class="custom-card-icon icon-blue"><i class="fas fa-arrow-down"></i></div>
+
                 <div class="custom-card-info">
+
                     <h5>Outgoing Movements</h5>
+
                     <h2>{{ total_outgoing|default:0 }}</h2>
+
                 </div>
+
             </div>
+
         </div>
+
         <div class="custom-card-wrapper">
+
             <div class="custom-status-card" style="border-color: #ffe066;">
+
                 <div class="custom-card-icon icon-orange"><i class="fas fa-exclamation-triangle"></i></div>
+
                 <div class="custom-card-info">
+
                     <h5>Low Stock Alerts</h5>
+
                     <h2>{{ low_stock_alerts|default:0 }}</h2>
+
                 </div>
+
             </div>
+
         </div>
+
     </div>
+
+
 
     {% if low_stock_alerts > 0 %}
+
     <div class="alert-banner-box" style="flex-direction: column !important; align-items: flex-start !important; gap: 5px !important;">
+
         <div style="display: flex !important; gap: 12px !important; align-items: center !important;">
+
             <i class="fas fa-exclamation-triangle" style="color: #f59f00;"></i>
+
             <strong style="color: #2c2c2c;">Low Stock Alert</strong>
+
         </div>
+
         <div style="padding-left: 27px !important;">
+
             {% for item in low_stock_items %}
+
                 <span style="display: block; color: #595959; font-size: 0.9rem; margin-bottom: 2px;">
+
                     • {{ item.name }} ({{ item.current_stock }} remaining)
+
                 </span>
+
             {% endfor %}
+
         </div>
+
     </div>
+
     {% endif %}
+
 </div>
 
-<div class="mobile-sidebar-drawer" id="mobileSidebarMenu">
-    <button class="drawer-close-trigger" id="closeSidebarBtn">&times;</button>
-    <div style="color: #94a3b8; font-size: 0.85rem; font-weight: 500; margin-bottom: 15px; padding-left: 5px;">
-        <i class="fas fa-user-shield"></i> admin
-    </div>
-    <div style="border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 10px;"></div>
-
-    <a href="/admin/" class="drawer-navigation-link" style="background: rgba(255,255,255,0.08);"><i class="fas fa-th-large"></i> Dashboard</a>
-
-    <div class="drawer-heading">Authentication and Authorization</div>
-    <a href="/admin/auth/group/" class="drawer-navigation-link"><i class="fas fa-users-cog"></i> Groups</a>
-    <a href="/admin/auth/user/" class="drawer-navigation-link"><i class="fas fa-user"></i> Users</a>
-
-    <div class="drawer-heading">Inventory</div>
-    <a href="/admin/app/materials/" class="drawer-navigation-link"><i class="fas fa-boxes"></i> Materials</a>
-    <a href="/admin/app/movements/" class="drawer-navigation-link"><i class="fas fa-exchange-alt"></i> Movements</a>
-    <a href="/admin/app/suppliers/" class="drawer-navigation-link"><i class="fas fa-truck"></i> Suppliers</a>
-</div>
-
-<div class="drawer-backdrop-shroud" id="menuShroudCover"></div>
-
-<div class="mobile-account-bubble" id="mobileAccountDropdown">
-    <div class="bubble-title">Account Options</div>
-    <a href="/admin/password_change/" class="bubble-action-item"><i class="fas fa-key"></i> Change password</a>
-    <a href="#" class="bubble-action-item"><i class="fas fa-id-card"></i> See Profile</a>
-    <form action="/admin/logout/" method="post" style="margin: 0; width: 100%;">
-        {% csrf_token %}
-        <button type="submit" class="bubble-action-item" style="color: #ff6b6b;"><i class="fas fa-sign-out-alt"></i> Log out</button>
-    </form>
-</div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const leftMenuBtn = document.getElementById('mobileLeftMenuBtn');
-        const rightAccountBtn = document.getElementById('mobileRightAccountBtn');
-        const sidebarMenu = document.getElementById('mobileSidebarMenu');
-        const accountDropdown = document.getElementById('mobileAccountDropdown');
-        const closeSidebarBtn = document.getElementById('closeSidebarBtn');
-        const shroudCover = document.getElementById('menuShroudCover');
-
-        function toggleSidebarNavigation() {
-            sidebarMenu.classList.toggle('drawer-active');
-            shroudCover.style.display = sidebarMenu.classList.contains('drawer-active') ? 'block' : 'none';
-        }
-
-        function toggleAccountDropdown(event) {
-            event.stopPropagation();
-            accountDropdown.classList.toggle('bubble-active');
-        }
-
-        leftMenuBtn.addEventListener('click', toggleSidebarNavigation);
-        closeSidebarBtn.addEventListener('click', toggleSidebarNavigation);
-        shroudCover.addEventListener('click', toggleSidebarNavigation);
-        rightAccountBtn.addEventListener('click', toggleAccountDropdown);
-
-        document.addEventListener('click', function(e) {
-            if (accountDropdown.classList.contains('bubble-active') && !accountDropdown.contains(e.target) && e.target !== rightAccountBtn) {
-                accountDropdown.classList.remove('bubble-active');
-            }
-        });
-    });
-</script>
 {% endblock %}
