@@ -529,3 +529,14 @@ html[data-bs-theme="dark"] .selector select option:checked {
     align-items: center;
     padding-left: 0.5rem;
 }
+
+body .navbar-light .navbar-nav .nav-link,
+body .navbar-nav .dropdown-toggle,
+body .navbar-nav .dropdown-toggle span,
+body .navbar-nav .dropdown-toggle i {
+    color: #1e293b !important;
+}
+body .navbar-nav .dropdown-toggle:hover,
+body .navbar-nav .dropdown-toggle:hover i {
+    color: #0d1e2d !important;
+}
