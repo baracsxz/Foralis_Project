@@ -28,10 +28,16 @@ class SoftDeleteModel(models.Model):
     class Meta:
         abstract = True
 
-    def soft_delete(self):
+    def soft_delete(self, record_type, details):
         self.is_deleted = True
         self.deleted_at = timezone.now()
         self.save()
+        DeletionLog.objects.create(
+            record_type=record_type,
+            record_id=self.pk,
+            display_name=str(self),
+            details=details
+        )
 
     def restore(self):
         self.is_deleted = False
@@ -79,3 +85,17 @@ class Movement(SoftDeleteModel, models.Model):
                 self.material.current_stock -= self.quantity
             self.material.save()
         super().save(*args, **kwargs)
+
+class DeletionLog(models.Model):
+    record_type = models.CharField(max_length=50)
+    record_id = models.IntegerField()
+    display_name = models.CharField(max_length=255)
+    details = models.TextField()
+    deleted_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Archive/Delete Log'
+        verbose_name_plural = 'Archive/Delete Logs'
+
+    def __str__(self):
+        return f"{self.record_type}: {self.display_name}"
