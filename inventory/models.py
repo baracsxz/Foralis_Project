@@ -94,8 +94,9 @@ class DeletionLog(models.Model):
     deleted_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
+        app_label = 'system_logs'
         verbose_name = 'Archive/Delete Log'
-        verbose_name_plural = 'Archive/Delete Logs'
+        verbose_name_plural = 'System Trash Archive'
 
     def __str__(self):
         return f"{self.record_type}: {self.display_name}"
