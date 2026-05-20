@@ -62,7 +62,7 @@ class MaterialAdmin(ActiveAdmin):
 
     def stock_value_display(self, obj):
         value = obj.current_stock * obj.unit_cost
-        return format_html('<b style="color: #28a745;">₱{:,.2f}</b>', value)
+        return f"₱{value:,.2f}"
 
     stock_value_display.short_description = 'Stock Value'
 
