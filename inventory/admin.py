@@ -9,9 +9,34 @@ from .models import Material, Movement, Supplier, DeletionLog
 
 class ActiveAdmin(admin.ModelAdmin):
     exclude = ('is_deleted', 'deleted_at')
+    actions = ['delete_selected_archive']
 
     def get_queryset(self, request):
         return self.model.objects.filter(is_deleted=False)
+
+    def get_actions(self, request):
+        actions = super().get_actions(request)
+        if 'delete_selected' in actions:
+            del actions['delete_selected']
+        return actions
+
+    def delete_selected_archive(self, request, queryset):
+        count = 0
+        for obj in queryset:
+            record_type = obj.__class__.__name__
+            if record_type == 'Movement':
+                details = f"type: {obj.get_movement_type_display()}, qty: {obj.quantity}, site: {obj.project_site}"
+            elif record_type == 'Material':
+                details = f"cat: {obj.get_category_display()}, stock: {obj.current_stock} {obj.unit}"
+            else:
+                details = f"contact: {obj.contact_person}, ph: {obj.phone_number}"
+
+            obj.soft_delete(record_type=record_type, details=details)
+            count += 1
+
+        messages.warning(request, f"successfully archived {count} selected records to the delete log.")
+
+    delete_selected_archive.short_description = "Delete selected items (Archive)"
 
     def delete_model(self, request, obj):
         record_type = obj.__class__.__name__
