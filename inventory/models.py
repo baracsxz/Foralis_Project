@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 CATEGORY_CHOICES = [
     ('Marine', 'Marine Solutions'),
@@ -20,7 +21,24 @@ UNIT_CHOICES = [
     ('unit', 'Unit')
 ]
 
-class Supplier(models.Model):
+class SoftDeleteModel(models.Model):
+    is_deleted = models.BooleanField(default=False)
+    deleted_at = models.DateTimeField(null=True, blank=True)
+
+    class Meta:
+        abstract = True
+
+    def soft_delete(self):
+        self.is_deleted = True
+        self.deleted_at = timezone.now()
+        self.save()
+
+    def restore(self):
+        self.is_deleted = False
+        self.deleted_at = None
+        self.save()
+
+class Supplier(SoftDeleteModel, models.Model):
     name = models.CharField(max_length=200)
     contact_person = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=20)
@@ -29,7 +47,7 @@ class Supplier(models.Model):
     def __str__(self):
         return self.name
 
-class Material(models.Model):
+class Material(SoftDeleteModel, models.Model):
     name = models.CharField(max_length=200)
     category = models.CharField(max_length=100, choices=CATEGORY_CHOICES)
     unit = models.CharField(max_length=10, choices=UNIT_CHOICES, default='pcs')
@@ -45,7 +63,7 @@ class Material(models.Model):
         status = " (LOW)" if self.is_low_stock() else ""
         return f"{self.name} - {self.current_stock} {self.unit}{status}"
 
-class Movement(models.Model):
+class Movement(SoftDeleteModel, models.Model):
     TYPES = (('IN', 'Incoming/Received'), ('OUT', 'Outgoing/To Project'))
     material = models.ForeignKey(Material, on_delete=models.CASCADE)
     movement_type = models.CharField(max_length=3, choices=TYPES)
@@ -54,9 +72,10 @@ class Movement(models.Model):
     date = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):
-        if self.movement_type == 'IN':
-            self.material.current_stock += self.quantity
-        else:
-            self.material.current_stock -= self.quantity
-        self.material.save()
+        if not self.is_deleted:
+            if self.movement_type == 'IN':
+                self.material.current_stock += self.quantity
+            else:
+                self.material.current_stock -= self.quantity
+            self.material.save()
         super().save(*args, **kwargs)
