@@ -128,6 +128,14 @@ JAZZMIN_SETTINGS = {
         "inventory.Material": "fas fa-boxes",
         "inventory.Movement": "fas fa-exchange-alt",
     },
+"custom_links": {
+        "inventory": [{
+            "name": "System Trash Archive",
+            "url": "inventory/deletionlog",
+            "icon": "fas fa-trash-alt",
+        }]
+    },
+    "hide_models": ["inventory.deletionlog"],
 }
 
 JAZZMIN_UI_TWEAKS = {
