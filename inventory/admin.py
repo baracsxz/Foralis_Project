@@ -29,14 +29,22 @@ class ActiveAdmin(admin.ModelAdmin):
 
 @admin.register(Supplier)
 class SupplierAdmin(ActiveAdmin):
-    list_display = ('name', 'contact_person', 'phone_number', 'email')
+    list_display = ('name', 'contact_person', 'phone_number', 'email', 'edit_button')
     search_fields = ('name',)
+
+    def edit_button(self, obj):
+        url = reverse('admin:inventory_supplier_change', args=[obj.pk])
+        return format_html(
+            '<a class="button" href="{}" style="background-color: #264b5d; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; text-decoration: none;">Edit</a>',
+            url)
+
+    edit_button.short_description = 'Edit'
 
 
 @admin.register(Material)
 class MaterialAdmin(ActiveAdmin):
     list_display = ('name', 'category', 'current_stock_status', 'unit', 'unit_cost_display', 'stock_value_display',
-                    'supplier')
+                    'supplier', 'edit_button')
     search_fields = ('name', 'supplier__name', 'category')
     list_filter = ('category', 'unit', 'supplier')
 
@@ -47,11 +55,24 @@ class MaterialAdmin(ActiveAdmin):
 
     current_stock_status.short_description = 'Current Stock'
 
-    def unit_cost_display(self, obj): return f"₱{obj.unit_cost:,.2f}"
+    def unit_cost_display(self, obj):
+        return f"₱{obj.unit_cost:,.2f}"
+
+    unit_cost_display.short_description = 'Unit Cost'
 
     def stock_value_display(self, obj):
         value = obj.current_stock * obj.unit_cost
         return format_html('<b style="color: #28a745;">₱{:,.2f}</b>', value)
+
+    stock_value_display.short_description = 'Stock Value'
+
+    def edit_button(self, obj):
+        url = reverse('admin:inventory_material_change', args=[obj.pk])
+        return format_html(
+            '<a class="button" href="{}" style="background-color: #264b5d; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; text-decoration: none;">Edit</a>',
+            url)
+
+    edit_button.short_description = 'Edit'
 
     def changelist_view(self, request, extra_context=None):
         total_value = Material.objects.filter(is_deleted=False).aggregate(
@@ -64,13 +85,23 @@ class MaterialAdmin(ActiveAdmin):
 
 @admin.register(Movement)
 class MovementAdmin(ActiveAdmin):
-    list_display = ('formatted_date', 'material', 'movement_type', 'quantity', 'project_site')
+    list_display = ('formatted_date', 'material', 'movement_type', 'quantity', 'project_site', 'edit_button')
     list_filter = ('movement_type', 'date', 'project_site')
     search_fields = ('material__name', 'project_site')
     date_hierarchy = 'date'
 
     def formatted_date(self, obj):
         return timezone.localtime(obj.date).strftime("%b %d, %Y, %I:%M %p")
+
+    formatted_date.short_description = 'Date & Time'
+
+    def edit_button(self, obj):
+        url = reverse('admin:inventory_movement_change', args=[obj.pk])
+        return format_html(
+            '<a class="button" href="{}" style="background-color: #264b5d; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; text-decoration: none;">Edit</a>',
+            url)
+
+    edit_button.short_description = 'Edit'
 
 
 @admin.register(DeletionLog)
